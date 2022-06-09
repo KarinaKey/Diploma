@@ -167,23 +167,6 @@ class MyBot(BotAI):
         if self.can_afford(UnitTypeId.OVERLORD):
             self.train(UnitTypeId.OVERLORD)
 
-#    async def create_queen(self):
-#        if self.can_afford(UnitTypeId.QUEEN):
-#            self.train(UnitTypeId.QUEEN)
-#        else:
-#        	self.create_drone()
-
-#    async def create_larva(self):
-#        if self.units(UnitTypeId.QUEEN).amount > 1:
-#            for queen in self.units(UnitTypeId.QUEEN):
-#                if queen != 0:
-#                    hatch = self.townhalls.closest_to(queen)
-#                    if queen.energy >= 25 and not self.hatch.has_buff(BuffId.QUEENSPAWNLARVATIMER):
-#                        queen(AbilityId.EFFECT_INJECTLARVA, hatch)
-#        else:
-#        	self.create_drone()
-
-
     async def build_hatchery(self):
         if self.can_afford(UnitTypeId.HATCHERY):
             await self.expand_now()
@@ -194,45 +177,6 @@ class MyBot(BotAI):
             worker = self.workers.random
             gas = self.vespene_geyser.closest_to(worker)
             worker.build_gas(gas)
-
-
-
-
-
-
-#        print(f"{iteration}, n_workers: {self.workers.amount}, n_idle_workers: {self.workers.idle.amount},", \
-#         	f", hatchery: {self.structures(UnitTypeId.HATCHERY).amount},",\
-#            f", minerals: {self.minerals}, gas: {self.vespene}, drones: {self.units(UnitTypeId.DRONE).amount},", \
-#            f", queens: {self.units(UnitTypeId.QUEEN).amount}, overlords: {self.units(UnitTypeId.OVERLORD).amount}", \
-#            f", supply: {self.supply_used}/{self.supply_cap}")
-
-
-        # begin logic:
-#        await self.distribute_workers()
-
-#        if self.townhalls: 
-        # do we have a nexus
-#            hatchery = self.townhalls.random  # select one (will just be one for now)
-            
-#            if hatchery.is_idle and self.can_afford(UnitTypeId.DRONE):  
-#                self.train(UnitTypeId.DRONE)  # train a probe
-
-#            else:
-#                if self.can_afford(UnitTypeId.HATCHERY):  # can we afford one?
-#                    print('can build')
-#                    await self.expand_now()  # build one!
- 
-        # if we dont have *any* pylons, we'll build one close to the nexus.
-#                if self.can_afford(UnitTypeId.OVERLORD) and not self.already_pending(UnitTypeId.OVERLORD):
-#                    self.train(UnitTypeId.OVERLORD)
-
-              
-#                elif self.structures(UnitTypeId.EXTRACTOR).amount < 5:
-#                    if self.can_afford(UnitTypeId.EXTRACTOR) and self.workers:
-                    # build from the closest pylon towards the enemy
-#                        worker = self.workers.random
-#                        gas = self.vespene_geyser.closest_to(worker)
-#                        worker.build_gas(gas)
                     
 if __name__ == '__main__':
     run_game(
